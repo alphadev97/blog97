@@ -1,12 +1,11 @@
 import "@styles/globals.css";
-import { metadata } from "./layout";
 
 export const metadata = {
   title: "Prompty97",
   description: "Discover & Share AI Prompt",
 };
 
-const RootLayout = () => {
+const RootLayout = ({children}) => {
   return (
     <html lang="en">
       <body>
