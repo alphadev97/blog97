@@ -34,8 +34,6 @@ const Nav = () => {
 
       {/* Desktop Navigation */}
 
-      {console.log(session)}
-
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
