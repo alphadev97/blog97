@@ -57,7 +57,7 @@ const Footer = () => {
       </div>
       <div className={styles.copyright}>
         <p>
-          &copy; Blog97, Copyright Protect. Buil with ❤️ by{" "}
+          &copy; Blog97, Copyright Protected. Built with ❤️ by{" "}
           <a href="https://www.linkedin.com/in/alpha97/">Alpha97</a>
         </p>
       </div>
