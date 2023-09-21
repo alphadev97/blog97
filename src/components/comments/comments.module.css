@@ -29,6 +29,14 @@
   cursor: pointer;
 }
 
+.comments {
+  margin-top: 50px;
+}
+
+.comment {
+  margin-bottom: 50px;
+}
+
 .user {
   display: flex;
   align-items: center;
@@ -50,4 +58,13 @@
 
 .username {
   font-weight: 500;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.desc {
+  font-size: 18px;
+  font-weight: 300;
 }
