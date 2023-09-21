@@ -38,6 +38,69 @@ const Comments = () => {
             dignissimos sequi quam voluptatem!
           </p>
         </div>
+        <div className={styles.comment}>
+          <div className={styles.user}>
+            <Image
+              src={"/p1.jpeg"}
+              alt=""
+              width={50}
+              height={50}
+              className={styles.image}
+            />
+            <div className={styles.userInfo}>
+              <span className={styles.username}>Mark John</span>
+              <span className={styles.date}>01.02.2023</span>
+            </div>
+          </div>
+          <p className={styles.desc}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
+            eligendi harum assumenda natus debitis dolores doloremque adipisci
+            distinctio odit labore neque veritatis iste nemo perferendis, vitae
+            dignissimos sequi quam voluptatem!
+          </p>
+        </div>
+        <div className={styles.comment}>
+          <div className={styles.user}>
+            <Image
+              src={"/p1.jpeg"}
+              alt=""
+              width={50}
+              height={50}
+              className={styles.image}
+            />
+            <div className={styles.userInfo}>
+              <span className={styles.username}>Mark John</span>
+              <span className={styles.date}>01.02.2023</span>
+            </div>
+          </div>
+          <p className={styles.desc}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
+            eligendi harum assumenda natus debitis dolores doloremque adipisci
+            distinctio odit labore neque veritatis iste nemo perferendis, vitae
+            dignissimos sequi quam voluptatem!
+          </p>
+        </div>
+        <div className={styles.comment}>
+          <div className={styles.user}>
+            <Image
+              src={"/p1.jpeg"}
+              alt=""
+              width={50}
+              height={50}
+              className={styles.image}
+            />
+            <div className={styles.userInfo}>
+              <span className={styles.username}>Mark John</span>
+              <span className={styles.date}>01.02.2023</span>
+            </div>
+          </div>
+          <p className={styles.desc}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
+            eligendi harum assumenda natus debitis dolores doloremque adipisci
+            distinctio odit labore neque veritatis iste nemo perferendis, vitae
+            dignissimos sequi quam voluptatem!
+          </p>
+        </div>
       </div>
     </div>
   );
