@@ -43,6 +43,22 @@
   background-color: transparent;
 }
 
+.input::placeholder {
+  color: #b3b3b1;
+}
+
 .textArea {
   width: 100%;
+}
+
+.publish {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1a8917;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
 }
