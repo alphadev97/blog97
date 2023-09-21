@@ -1,0 +1,7 @@
+.container {
+  margin-top: 50px;
+}
+
+.title {
+  color: var(--softTextColor);
+}
