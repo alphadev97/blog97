@@ -17,19 +17,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <AuthProvider>
-          <ThemeContextProvider>
-            <ThemeProvider>
-              <div className="container">
-                <div className="wrapper">
+        <ThemeContextProvider>
+          <ThemeProvider>
+            <div className="container">
+              <div className="wrapper">
+                <AuthProvider>
                   <Navbar />
                   {children}
                   <Footer />
-                </div>
+                </AuthProvider>
               </div>
-            </ThemeProvider>
-          </ThemeContextProvider>
-        </AuthProvider>
+            </div>
+          </ThemeProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );
