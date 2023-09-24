@@ -1,15 +1,20 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import styles from "./loginPage.module.css";
 import { signIn, useSession } from "next-auth/react";
 
 const LoginPage = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loading</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
 
+  if (status === "authenticated") {
+    router.push("/");
+  }
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
