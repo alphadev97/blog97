@@ -5,7 +5,10 @@ import { signIn, useSession } from "next-auth/react";
 
 const LoginPage = () => {
   const { data: session, status } = useSession();
-  console.log(session, status);
+
+  if (status === "loading") {
+    return <div className={styles.loading}>Loading</div>;
+  }
 
   return (
     <div className={styles.container}>
