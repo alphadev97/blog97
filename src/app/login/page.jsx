@@ -5,7 +5,7 @@ import styles from "./loginPage.module.css";
 import { signIn, useSession } from "next-auth/react";
 
 const LoginPage = () => {
-  const { data: session, status } = useSession();
+  const { data, status } = useSession();
   const router = useRouter();
 
   if (status === "loading") {
