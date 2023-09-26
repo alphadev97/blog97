@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./comments.module.css";
 import { Link } from "next/link";
+import useSWR from "swr";
+import { useSession } from "next-auth/react";
 
-const Comments = () => {
-  const status = "authenticated";
+const Comments = ({ postSlug }) => {
+  const status = useSession();
+
+  const { data, isLoading } = useSWR(
+    `http://localhost:3000/api/comments?postSlug=${postSlug}`
+  );
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Comments</h1>
