@@ -6,11 +6,25 @@ import { Link } from "next/link";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+
+  return data;
+};
+
 const Comments = ({ postSlug }) => {
-  const status = useSession();
+  const { status } = useSession();
 
   const { data, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?postSlug=${postSlug}`
+    `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+    fetcher
   );
 
   return (
@@ -26,90 +40,30 @@ const Comments = ({ postSlug }) => {
       )}
 
       <div className={styles.comments}>
-        <div className={styles.comment}>
-          <div className={styles.user}>
-            <Image
-              src={"/p1.jpeg"}
-              alt=""
-              width={50}
-              height={50}
-              className={styles.image}
-            />
-            <div className={styles.userInfo}>
-              <span className={styles.username}>Mark John</span>
-              <span className={styles.date}>01.02.2023</span>
-            </div>
-          </div>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
-            eligendi harum assumenda natus debitis dolores doloremque adipisci
-            distinctio odit labore neque veritatis iste nemo perferendis, vitae
-            dignissimos sequi quam voluptatem!
-          </p>
-        </div>
-        <div className={styles.comment}>
-          <div className={styles.user}>
-            <Image
-              src={"/p1.jpeg"}
-              alt=""
-              width={50}
-              height={50}
-              className={styles.image}
-            />
-            <div className={styles.userInfo}>
-              <span className={styles.username}>Mark John</span>
-              <span className={styles.date}>01.02.2023</span>
-            </div>
-          </div>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
-            eligendi harum assumenda natus debitis dolores doloremque adipisci
-            distinctio odit labore neque veritatis iste nemo perferendis, vitae
-            dignissimos sequi quam voluptatem!
-          </p>
-        </div>
-        <div className={styles.comment}>
-          <div className={styles.user}>
-            <Image
-              src={"/p1.jpeg"}
-              alt=""
-              width={50}
-              height={50}
-              className={styles.image}
-            />
-            <div className={styles.userInfo}>
-              <span className={styles.username}>Mark John</span>
-              <span className={styles.date}>01.02.2023</span>
-            </div>
-          </div>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
-            eligendi harum assumenda natus debitis dolores doloremque adipisci
-            distinctio odit labore neque veritatis iste nemo perferendis, vitae
-            dignissimos sequi quam voluptatem!
-          </p>
-        </div>
-        <div className={styles.comment}>
-          <div className={styles.user}>
-            <Image
-              src={"/p1.jpeg"}
-              alt=""
-              width={50}
-              height={50}
-              className={styles.image}
-            />
-            <div className={styles.userInfo}>
-              <span className={styles.username}>Mark John</span>
-              <span className={styles.date}>01.02.2023</span>
-            </div>
-          </div>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut
-            eligendi harum assumenda natus debitis dolores doloremque adipisci
-            distinctio odit labore neque veritatis iste nemo perferendis, vitae
-            dignissimos sequi quam voluptatem!
-          </p>
-        </div>
+        {isLoading
+          ? "loading"
+          : data?.map((item) => (
+              <div className={styles.comment} key={item._id}>
+                <div className={styles.user}>
+                  {item?.user?.image && (
+                    <Image
+                      src={item.user.image}
+                      alt=""
+                      width={50}
+                      height={50}
+                      className={styles.image}
+                    />
+                  )}
+                  <div className={styles.userInfo}>
+                    <span className={styles.username}>{item.user.name}</span>
+                    <span className={styles.date}>
+                      {item.createdAt.substring(0, 10)}
+                    </span>
+                  </div>
+                </div>
+                <p className={styles.desc}>{item.desc}</p>
+              </div>
+            ))}
       </div>
     </div>
   );
