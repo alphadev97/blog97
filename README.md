@@ -1,6 +1,7 @@
 # Next.js Blog with NextAuth.js, Prisma, and Firebase
 
-![Project Preview](./client/src/assets/preview.png)
+![Project Preview](./public/blogapp-1.png)
+![Project Preview](./public/blogapp-2.png)
 
 A modern and feature-rich blog application built with Next.js, NextAuth.js for authentication, Prisma as the database ORM, and Firebase for storage and other features.
 
