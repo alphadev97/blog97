@@ -12,6 +12,7 @@ const WritePage = () => {
   const { status } = useSession();
   const router = useRouter();
 
+  const [file, setFile] = useState(null);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
@@ -19,7 +20,7 @@ const WritePage = () => {
     return <div className={styles.loading}>Loading...</div>;
   }
 
-  if (status === "authenticated") {
+  if (status === "unauthenticated") {
     router.push("/");
   }
 
@@ -32,8 +33,16 @@ const WritePage = () => {
         </button>
         {open && (
           <div className={styles.add}>
+            <input
+              type="file"
+              id="image"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+            />
             <button className={styles.addButton}>
-              <Image src="/image.png" alt="" width={16} height={16} />
+              <label htmlFor="image">
+                <Image src="/image.png" alt="" width={16} height={16} />
+              </label>
             </button>
             <button className={styles.addButton}>
               <Image src="/external.png" alt="" width={16} height={16} />
