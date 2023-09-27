@@ -3,7 +3,7 @@
 ![Project Preview](./public/blogapp-1.png)
 ![Project Preview](./public/blogapp-2.png)
 
-A modern and feature-rich blog application built with Next.js, NextAuth.js for authentication, Prisma as the database ORM, and Firebase for storage and other features.
+A modern full stack blog application built with Next.js, NextAuth.js for authentication, Prisma as the database ORM, and Firebase for storage and many more.
 
 ## Table of Contents
 
@@ -16,11 +16,9 @@ A modern and feature-rich blog application built with Next.js, NextAuth.js for a
 
 ## Features
 
-- User authentication with NextAuth.js and Firebase.
-- Create, edit, and delete blog posts.
+- User authentication with NextAuth.js.
 - Categorize posts and manage categories.
-- Real-time comments with Firebase Realtime Database.
-- User profile management.
+- Real-time comments.
 - Responsive design for various screen sizes.
 - SEO optimization.
 - Fast and optimized performance.
